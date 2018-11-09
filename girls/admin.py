@@ -6,7 +6,7 @@ class ModelImageAdmin(admin.ModelAdmin):
     #fields = ['image_tag',]
     #readonly_fields = ['image_tag',]
 
-    readonly_fields = ["headshot_image"]
+    readonly_fields = ["headshot_image", 'model']
 
     def headshot_image(self, obj):
         return mark_safe('<img src="{url}" width="{width}" height={height} />'.format(
@@ -19,7 +19,7 @@ class ModelImageAdmin(admin.ModelAdmin):
 class ModelImageInline(admin.StackedInline):
     model = ModelImage
     #fields = ['headshot_image',]
-    readonly_fields = ['headshot_image',]
+    readonly_fields = ['headshot_image']
 
     def headshot_image(self, obj):
         return mark_safe('<img src="{url}" width="{width}" height={height} />'.format(
