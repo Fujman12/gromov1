@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """gromov URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -15,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from girls.views import GirlsListView
+from girls.views import GirlsListView, GirlDetailView
 from django.conf import settings
 from django.views.static import serve
 from django.conf.urls.static import static
@@ -23,5 +24,8 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('models/', GirlsListView.as_view(), name='article-list'),
+    path('models/', GirlsListView.as_view(), name='girls-list'),
+    path('models/<int:id>', GirlDetailView.as_view(), name='girl-detail')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

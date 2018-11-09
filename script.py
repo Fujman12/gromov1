@@ -6,8 +6,11 @@ import time
 
 def validate(date_text):
     try:
-        time.strptime(str(date_text), '%Y-%m-%d')
+        print(date_text)
+        time.strptime(str(date_text).split(' ')[0], '%Y-%m-%d')
+
     except ValueError:
+        print(False)
         return False
 
     return True

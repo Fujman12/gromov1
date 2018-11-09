@@ -1,0 +1,110 @@
+{% load static %}
+{% load my_filter %}
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+
+	<meta charset="utf-8">
+	<!-- <base href="/"> -->
+
+	<title>Gromov Model Management</title>
+	<meta name="description" content="">
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<!-- Template Basic Images Start -->
+	<!--meta property="og:image" content="path/to/image.jpg"-->
+	<!--link rel="icon" href="img/favicon/favicon.ico"-->
+	<!--link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon-180x180.png"-->
+	<!-- Template Basic Images End -->
+
+	<!-- Custom Browsers Color Start -->
+	<meta name="theme-color" content="#000">
+	<!-- Custom Browsers Color End -->
+
+	<link rel="stylesheet" href="{% static 'css/main.min.css' %}">
+	<link href="https://fonts.googleapis.com/css?family=Krub:200,300,400" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Inconsolata|Lato|Open+Sans+Condensed:300|Quicksand|Roboto+Mono" rel="stylesheet">
+</head>
+
+<body>
+
+	<!-- Custom HTML -->
+
+	<div class="header-wrapper">	
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col">
+					<div class="logo">	
+						<a href="{% url 'girls-list' %}"><h1><span>Gromov</span> <br> <span>Model Management<span></h1></a>
+						</div>
+					</div>
+				</div>
+			</div>	
+		</div>
+
+		<div class="container-fluid">
+			<div class="row justify-content-center">
+
+				<div class="filter-block">
+					<div class="filter-items">
+						<ul>
+							<li><h2>Search: </h2></li>
+							<li>
+								<label for="age-input">Age:</label><br>
+								<input id="age-input" type="text" placeholder="From">
+								<span> – </span>
+								<input id="age-input" type="text" placeholder="To">
+							</li>
+							<li>
+								<label for="age-input">Hair color:</label> <br> 
+								<select id="age-input" type="text">
+									<option value="select-all">Select all</option>
+									<option value="black">Black</option>
+									<option value="blonde">Blonde</option>
+									<option value="brown">Brown</option>
+								</select>
+							</li>
+							<li><label for="age-input">Height:</label><br>
+								
+								<input type="text" placeholder="From">
+								<span> – </span>
+								<input type="text" placeholder="To">
+							</li>
+						</ul>
+					</div>
+
+				</div>
+			</div>
+		</div>	
+	</div>
+	<ul class="model-items">
+		{% for girl in girls %}
+			{% for image in girl.images.all %}
+				{% if image.is_cover %}
+					<li><a href="{% url 'girl-detail' id=girl.id %}" class="img-responsive" style='background-image: url({{ image.image.url|my_filter }})'></a></li>
+				{% endif %}
+			{% endfor %}
+		{% endfor %}
+
+		<!--<li><a href="index4.html" class="img-responsive" style="background-image: url(../img/003.jpg)"></a></li>	-->
+		<!--<li><a href="index4.html" class="img-responsive" style="background-image: url(../img/006.jpg)"></a></li>	-->
+		<!--<li><a href="index4.html" class="img-responsive" style="background-image: url(../img/007.jpg)"></a></li>	-->
+		<!--<li><a href="index4.html" class="img-responsive" style="background-image: url(../img/001.jpg)"></a></li>	-->
+		<!--<li><a href="index4.html" class="img-responsive" style="background-image: url(../img/003.jpg)"></a></li>	-->
+		<!--<li><a href="index4.html" class="img-responsive" style="background-image: url(../img/003.jpg)"></a></li>	-->
+	</ul>
+</div>
+<footer class="container">
+	<div class="row justify-content-center align-items-center">	
+		<div class="col-12">Copyright © 2018 Gromov Model Management. All Rights Reserved.</div>
+	</div>
+</footer>
+
+
+<script src="js/scripts.min.js"></script>
+
+</body>
+</html>

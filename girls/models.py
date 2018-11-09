@@ -1,6 +1,8 @@
+# -*- coding: utf-8 -*-
 from django.db import models
 import random
 import string
+from datetime import date
 from django.utils.safestring import mark_safe
 from django.conf import settings
 # Create your models here.
@@ -32,6 +34,11 @@ class Girl(models.Model):
     #         if image.image.height > image.image.width:
     #             return image
     #     return None
+
+    @property
+    def age(self):
+        today = date.today()
+        return today.year - self.date_of_birth.year - ((today.month, today.day) < (self.date_of_birth.month, self.date_of_birth.day))
 
     def save(self, *args, **kwargs):
         if not self.image_id:

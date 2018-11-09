@@ -1,0 +1,102 @@
+{% load static %}
+{% load my_filter %}
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+
+	<meta charset="utf-8">
+	<!-- <base href="/"> -->
+
+	<title>Gromov Model Management</title>
+	<meta name="description" content="">
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	
+	<!-- Template Basic Images Start -->
+	<meta property="og:image" content="path/to/image.jpg">
+	<link rel="icon" href="img/favicon/favicon.ico">
+	<link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon-180x180.png">
+	<!-- Template Basic Images End -->
+	
+	<!-- Custom Browsers Color Start -->
+	<meta name="theme-color" content="#000">
+	<!-- Custom Browsers Color End -->
+
+	<link rel="stylesheet" href="{% static 'css/main.min.css' %}">
+	<link href="https://fonts.googleapis.com/css?family=Krub:300,400" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+</head>
+
+<body>
+
+	<!-- Custom HTML -->
+	<div class="header-wrapper">	
+		<div class="container-fluid">
+			<div class="row">
+					<div class="col">
+						<div class="logo">	
+							<a href="{% url 'girls-list' %}"><h1><span>Gromov</span> <br> <span>Model Management<span></h1></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>	
+	</div>
+
+
+		<div class="model-review-wrapper">
+
+			<div class="container">
+				<div class="row justify-content-center">
+
+					<div class="col-sm-10 col-md-7 col-lg-6">
+						<div class="parent-container">
+							<div class="test-popup">
+
+								<a class="model-picture" href="{{ girl.images.all.0.image.url }}" title="Shmara Tamara"><img src="{{ girl.images.all.0.image.url }}" alt=""></a>
+
+								<a class="model-picture" href="{{ girl.images.all.1.image.url }}" style="display: none"><img src="{{ girl.images.all.1.image.url }}" alt=""></a>
+								<a class="model-picture" href="{{ girl.images.all.2.image.url}}" style="display: none"><img src="i{{ girl.images.all.2.image.url }}" alt=""></a>
+								<a class="test-popup-link-left" href="{{ girl.images.all.3.image.url }}"><</a>
+								<a class="test-popup-link-right" href="{{ girl.images.all.3.image.url }}">></a>
+							</div>
+						</div>
+						<!-- <div class="owl-carousel">
+						  <div class="model-picture" style="background-image: url('img/13МарияКоломиец(3).jpg');"></div>
+						  <div class="model-picture" style="background-image: url('img/13МарияКоломиец(5).jpg');"></div>
+						  <div class="model-picture" style="background-image: url('img/13Мария Коломиец(6).jpg');"></div>
+						  
+						  <img src="img/13МарияКоломиец(1).jpg" alt="">
+						  <img src="img/13Мария Коломиец(6).jpg" alt="">
+						  <img src="img/13МарияКоломиец(3).jpg" alt="">
+						  
+						</div> -->
+					</div>
+					<div class="col-12 col-md-5 col-lg-4">
+						<ul class="model-review-list">
+							<li><span>Name: {{ girl.first_name}}</span></li>
+							<li><span>Height: {{ girl.height }} cm</span></li>
+							<li><span>Age:{% if girl.date_of_birth %} {{ girl.age}} {% endif %}</span></li>
+							<li><span>Hair color: {{ girl.hair_color }}</span></li>
+							<li><span>Parameters: <br class="br"> {{ girl.parameters }}</span></li>
+							<li><span>Eye color: {{ girl.eye_color }}</span></li>
+							<li><span>Languages: English</span></li>
+						</ul>		
+					</div>
+				</div>
+			</div>		
+		</div>
+
+		<footer class="container">
+			<div class="row justify-content-center align-items-center">	
+				<div class="col">Copyright © 2018 Gromov Model Management. All Rights Reserved.</div>
+			</div>
+		</footer>
+		<script src="{% static 'js/scripts.min.js' %}"></script>
+		<!-- Latest compiled and minified Bootstrap JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+	</body>
+	</html>
