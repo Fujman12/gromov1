@@ -53,14 +53,19 @@
 
 					<div class="col-sm-10 col-md-7 col-lg-6">
 						<div class="parent-container">
+
+								{% for image in girl.images.all %}
+									{% if image.is_cover %}
+							<div class="model-picture" href="{{ image.image.url }}" title="{{girl.first_name}}"><img src="{{ image.image.url }}" alt=""></div>
+									{% endif %}
+								{% endfor %}
+
 							<div class="test-popup">
+								{% for image in girl.images.all %}
+									
+									<a href="{{ image.image.url }}" title="{{ girl.first_name}}"></a>
 
-								<a class="model-picture" href="{{ girl.images.all.0.image.url }}" title="Shmara Tamara"><img src="{{ girl.images.all.0.image.url }}" alt=""></a>
-
-								<a class="model-picture" href="{{ girl.images.all.1.image.url }}" style="display: none"><img src="{{ girl.images.all.1.image.url }}" alt=""></a>
-								<a class="model-picture" href="{{ girl.images.all.2.image.url}}" style="display: none"><img src="i{{ girl.images.all.2.image.url }}" alt=""></a>
-								<a class="test-popup-link-left" href="{{ girl.images.all.3.image.url }}"><</a>
-								<a class="test-popup-link-right" href="{{ girl.images.all.3.image.url }}">></a>
+								{% endfor %}
 							</div>
 						</div>
 						<!-- <div class="owl-carousel">
@@ -95,6 +100,7 @@
 			</div>
 		</footer>
 		<script src="{% static 'js/scripts.min.js' %}"></script>
+		<script src="{% static 'js/common.js' %}"></script>
 		<!-- Latest compiled and minified Bootstrap JavaScript -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
