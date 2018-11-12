@@ -25,7 +25,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     url('admin/', admin.site.urls),
     url('models/', GirlsListView.as_view(), name='girls-list'),
-    url('models/<int:id>', GirlDetailView.as_view(), name='girl-detail')
+    url('girl/<int:id>', GirlDetailView.as_view(), name='girl-detail')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
