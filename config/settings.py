@@ -109,7 +109,7 @@ DATABASES = {
     # }
     'default': {
        'ENGINE': 'django.db.backends.mysql',
-       'NAME': 'Fujman$gromov',
+       'NAME': 'Fujman$gromov1',
        'USER': 'Fujman',
        'PASSWORD': '1q2w3e4r5t',
        'HOST': 'Fujman.mysql.pythonanywhere-services.com',   # Or an IP Address that your DB is hosted on
