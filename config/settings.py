@@ -27,7 +27,7 @@ SECRET_KEY = '(j!39(z=py%6)+!toxes!do-_t+ax&pt-kd^y@542fnyvgfl&d'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['fujman.pythonanywhere.com']
 
 
 # Application definition
