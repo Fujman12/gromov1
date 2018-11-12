@@ -56,14 +56,14 @@
 
 								{% for image in girl.images.all %}
 									{% if image.is_cover %}
-							<div class="model-picture" href="{{ image.image.url }}" title="{{girl.first_name}}"><img src="{{ image.image.url }}" alt=""></div>
+							<div class="model-picture" href="{{ image.image.url }}" title="{{girl.first_name}} {{ girl.last_name }}."><img src="{{ image.image.url }}" alt=""></div>
 									{% endif %}
 								{% endfor %}
 
 							<div class="test-popup">
 								{% for image in girl.images.all %}
-									
-									<a href="{{ image.image.url }}" title="{{ girl.first_name}}"></a>
+
+									<a href="{{ image.image.url }}" title="{{ girl.first_name}} {{ girl.last_name }}."></a>
 
 								{% endfor %}
 							</div>
@@ -81,12 +81,12 @@
 					</div>
 					<div class="col-12 col-md-5 col-lg-4">
 						<ul class="model-review-list">
-							<li><span>Name: {{ girl.first_name}}</span></li>
-							<li><span>Height: {{ girl.height }} cm</span></li>
+							<li><span>ID: {{ girl.id }}</span></li>
+							<li><span>Name:{% if girl.first_name %} {{ girl.first_name}} {% endif %} {% if girl.last_name %} {{ girl.last_name}}. {% endif %}</span></li>
+							<li><span>Height:{% if girl.height %} {{ girl.height }} cm {% endif %}</span></li>
 							<li><span>Age:{% if girl.date_of_birth %} {{ girl.age}} {% endif %}</span></li>
-							<li><span>Hair color: {{ girl.hair_color }}</span></li>
-							<li><span>Parameters: <br class="br"> {{ girl.parameters }}</span></li>
-							<li><span>Eye color: {{ girl.eye_color }}</span></li>
+							<li><span>Hair color: {% if girl.hair_color %} {{ girl.hair_color }} {% endif %}</span></li>
+							<li><span>Parameters: <br class="br">{% if girl.parameters %} {{ girl.parameters }} {% endif %}</span></li>
 							<li><span>Languages: English</span></li>
 						</ul>		
 					</div>

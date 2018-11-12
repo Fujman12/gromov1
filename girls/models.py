@@ -2,7 +2,7 @@
 from django.db import models
 import random
 import string
-from datetime import date
+from datetime import date, datetime, timedelta
 from django.utils.safestring import mark_safe
 from django.conf import settings
 # Create your models here.
@@ -12,11 +12,15 @@ def generate_image_id(n=33):
     return ''.join(random.choices(string.ascii_uppercase + string.digits, k=n))
 
 
+def default_date_of_birth():
+    now = datetime.now()
+    return now - timedelta(days=7686)
+
 class Girl(models.Model):
     first_name = models.CharField("First name", max_length=256)
     last_name = models.CharField("Last name", max_length=256, blank=True, null=True)
 
-    date_of_birth = models.DateField("Date of birth", blank=True, null=True)
+    date_of_birth = models.DateField("Date of birth", blank=False, null=False, default=default_date_of_birth)
     hair_color = models.CharField("Hair color", max_length=30, blank=True, null=True)
     height = models.IntegerField(blank=True, null=True)
     parameters = models.CharField("Parameters", max_length=20, blank=True, null=True)
