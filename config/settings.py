@@ -26,7 +26,7 @@ SECRET_KEY = '(j!39(z=py%6)+!toxes!do-_t+ax&pt-kd^y@542fnyvgfl&d'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['fujman.pythonanywhere.com']
+ALLOWED_HOSTS = ['fujman.pythonanywhere.com', '127.0.0.1']
 
 
 # Application definition
@@ -103,20 +103,20 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
 DATABASES = {
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.sqlite3',
-    #     'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    # }
     'default': {
-       'ENGINE': 'django.db.backends.mysql',
-       'NAME': 'Fujman$gromov1',
-       'USER': 'Fujman',
-       'PASSWORD': '1q2w3e4r5t',
-       'HOST': 'Fujman.mysql.pythonanywhere-services.com',   # Or an IP Address that your DB is hosted on
-       'OPTIONS': {
-                           'sql_mode': 'traditional',
-                       }
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
+    # 'default': {
+    #    'ENGINE': 'django.db.backends.mysql',
+    #    'NAME': 'Fujman$gromov1',
+    #    'USER': 'Fujman',
+    #    'PASSWORD': '1q2w3e4r5t',
+    #    'HOST': 'Fujman.mysql.pythonanywhere-services.com',   # Or an IP Address that your DB is hosted on
+    #    'OPTIONS': {
+    #                        'sql_mode': 'traditional',
+    #                    }
+    # }
 }
 
 
